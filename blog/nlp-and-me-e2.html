@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<head>
+  <title>NLP AND ME!  - E2:  COLLECTING TEXT DATA - Sunday Lalbiaknia : Blog</title>
+  <meta name="keywords" content="sunday lalbiaknia,sundayakent,sundayamizo,nit mizoram,bilkhawthlir,php developer,web security researcher" />
+  <meta name="description" content="Sunday Lalbiaknia, Web Developer &amp; Security Researcher" />
+  <link type="text/css" rel="stylesheet" href="../style.css"/>
+  <meta name="author" content="Sunday Lalbiaknia" />
+  <meta name="robots" content="All" />
+</head>
+<body>
+  <div class="header">
+    <h><b>Sunday Lalbiaknia</b></h>
+    <p>web developer | pentester | researcher</p>
+  </div>
+  <hr>
+  <p align="center"><a href="..">home</a> | <a href="../resume.html">resume</a> | <a href="index.html">blog</a> | <a href="../photos.html">photos</a> | <a href="../interests.html">interests</a> | <a href="../contact.php">contact</a></p>
+  <hr>
+  <div align="center">
+  <h>NLP AND ME!  - E2:  COLLECTING TEXT DATA</h><br/>
+  <small>25/11/2016 08:07 PM, Ramhlun Venglai, Aizawl</small>
+</div>
+  <div class="maintext">
+
+    <p style="align:justify">
+      <div dir="ltr" style="text-align: left;" trbidi="on">
+<br />
+<div>
+One of the most important thing in NLP is text data. Collecting text data is not a simple task, especially when it comes to minor language like Mizo. &nbsp;This time I'd like share some simple tactics that I used for collecting a data for &nbsp;Natural Language Processing research last year i.e. 2015 - 2016 academic session.&nbsp;</div>
+<div>
+<br /></div>
+<div>
+A clean Mizo text data is not simply available. Since I was responsible for collecting a huge amount of clean Mizo text data, I had to go to some office of local newspapers like <a href="http://vanglaini.org/" target="_blank">Vanglaini</a>. We get a big file (may be larger than 3GB), but when we try to work on it, it is just a collection of useless stuffs for us. So, I had to make a clean data by myself. I plan to download every pages of their website and extract a clean text data from it.<br />
+<br />
+I am a web developer! I know how websites work and how files like web pages are stored in the server. I know the pattern how they can display the pages.<br />
+<br />
+If you see some websites, you may have seen the URL of the page ending as <code>?id=1234</code> , <code>?page=23</code>,<code> ?userid=1256</code>, etc. These are the query with which you can request a page.<br />
+<br />
+For example :<br />
+<div style="text-align: left;">
+If you see &nbsp;<code>www.angelvestgroup.com/info.php?id=1</code>, you will be redirected to a page. Now, if you modify the id to 2 i.e. <code>www.angelvestgroup.com/info.php?id=2</code>, you will go to a different page. Like that , you can go on.&nbsp;</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+When a <a href="http://www.sundayamizo.ga/2016/08/simple-data-entry-in-mysql-database.html" target="_blank">data is entered into the database</a>, all the entry has given an ID or name so that the particular data can be extracted and displayed in the web browser. But I do not say that this is the only way!&nbsp;</div>
+<div style="text-align: left;">
+If you are a Facebook user, you may have seen something like <code>profile.php?id=123456789</code>! This is the profile ID of the user. By going to <code>www.facebook.com/profile.php?id=XXXX</code>, you can see whose profile is that.</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+Like this way, most of the news websites and blogs are implemented.&nbsp;</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+Apparently, Vanglaini website uses a <b>Laravel PHP Framework</b>. If you see their website you will see a pattern in their web page which is similar to the above mentioned technique.&nbsp;</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+They have six (6) directories viz., <code>tualchhung</code>, <code>hmarchhak</code>, <code>ramchhung</code>, <code>khawvel</code>, <code>thalai</code> and <code>infiamna</code>.</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+All the pages in the website have an ID which can be extract and displayed simply by the format:</div>
+<div style="text-align: left;">
+&nbsp; &nbsp; &nbsp; &nbsp; <code>www.vanglaini.org/any_of_the_above_mentioned_directory/PAGEID</code></div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e.g: <code>www.vanglaini.org/tualchhung/23456</code></div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+The website have a good MVC (model view control) thing which is very good. The URL "www.vanglaini.org/tualchhung/12345" will display the same webpage as "www.vanglaini.org/thalai/12345" or "www.vanglaini.org/any_directory_name/12345".&nbsp;</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+Since I recognized all these patterns, I can simple use the "<code>wget</code>" command in my Linux system to download all the pages that I required.&nbsp;</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+I simply used the shell command below which gives me all the web pages that I require.</div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+<code>
+#!/bin/bash<br />
+for i in $(seq 1 1 61234)<br />
+do<br />
+&nbsp; &nbsp;wget http://vanglaini.org/tualchhung/$i<br />
+done<br />
+</code></div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+Now after I downloaded all the requires pages, I need to make them into a text file. For this, a very simple but powerful program html2text is there to fulfill my requirement. The following lines of bash code did everything for me.</div>
+<div style="text-align: left;">
+<br /></div>
+<code>for file in `find . -type f -not -name "*.*"`; do html2text "$file" &gt; "$file.txt"; done</code><br />
+<br />
+This lines of codes converts all the files to a text file (.txt).<br />
+<br />
+Now, I need only the TXT files. I can delete all the files which is not .txt file. I can do this by<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <code> rm !(*.txt)</code><br />
+<br />
+This bash command works very fine for me.<br />
+<br />
+Now the only thing that I still need to do is to merge all the text files into one file, which can be done by using the cat command<br />
+<br />
+<code>cat *.txt &gt; final.txt</code><br />
+<br />
+which merge all the contents on all the txt file into a file called <code>final.txt</code> file.<br />
+<br />
+In such a way, I collect a ~1GB of clean Mizo text data.<br />
+<br />
+I tell you this, collecting 1GB of text data is such a big task and takes lots of time.<br />
+<br />
+<div>
+<br /></div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+<br /></div>
+<div style="text-align: left;">
+<br /></div>
+</div>
+</div>
+
+
+    </p>
+  </div>
+<hr>
+  <div class="footer">
+    <p> &copy; Sunday Lalbiaknia</p>

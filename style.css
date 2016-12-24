@@ -1,0 +1,64 @@
+body{
+background-color: #000;
+color: #00FF00;
+max-width: 800px;
+margin:auto;
+font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+}
+
+p{
+font-size: 20px;
+padding: 0px 8px 0px 8px;
+}
+
+h{
+font-size: 28px;
+padding: 0px 8px 0px 8px;
+}
+a{
+  color: #00FF00;
+  text-decoration : none;
+  border-bottom : 1px dotted #00FF00;
+}
+hr{
+  color: #00FF00;
+  padding: -2px;
+  border: 0;
+  height: 1px;
+  background: #000;
+  background-image: linear-gradient(to right, #000, #00FF00, #000);
+}
+fieldset{
+  font-size: 18px;
+  display: block;
+  padding-left: 4px;
+  padding-right: 4px;
+  border: 1px solid #00FF00;
+}
+pre{
+  padding:0px 4px 0px 4px;
+  font-size: 18px;
+  font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+}
+legend{
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  padding-left: 2px;
+  padding-right: 2px;
+  border: 1px solid #00FF00;
+}
+
+.header{
+  text-align: center;
+}
+.footer{
+  text-align: center;
+}
+.code{
+  font-family: monaco,Consolas,Lucida Console,monospace;
+}
+.box{
+  border: 1px dotted #00FF00;
+  padding: 4px;
+}

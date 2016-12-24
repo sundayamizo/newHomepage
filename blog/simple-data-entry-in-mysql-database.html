@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<head>
+  <title>SIMPLE DATA ENTRY IN MYSQL DATABASE USING PHP - Sunday Lalbiaknia : Blog</title>
+  <meta name="keywords" content="sunday lalbiaknia,sundayakent,sundayamizo,nit mizoram,bilkhawthlir,php developer,web security researcher" />
+  <meta name="description" content="Sunday Lalbiaknia, Web Developer &amp; Security Researcher" />
+  <link type="text/css" rel="stylesheet" href="../style.css"/>
+  <meta name="author" content="Sunday Lalbiaknia" />
+  <meta name="robots" content="All" />
+</head>
+<body>
+  <div class="header">
+    <h><b>Sunday Lalbiaknia</b></h>
+    <p>web developer | pentester | researcher</p>
+  </div>
+  <hr>
+  <p align="center"><a href="..">home</a> | <a href="../resume.html">resume</a> | <a href="index.html">blog</a> | <a href="../photos.html">photos</a> | <a href="../interests.html">interests</a> | <a href="../contact.php">contact</a></p>
+  <hr>
+  <div align="center">
+  <h>SIMPLE DATA ENTRY IN MYSQL DATABASE USING PHP</h><br/>
+  <small>30/08/2016 11:42 PM, Ramhlun South</small>
+</div>
+  <div class="maintext">
+
+    <p style="align:justify">
+      <div dir="ltr" style="text-align: left;" trbidi="on">
+You may find a hell lot of tutorials on this topic, but may not work on your system because of what <code>PHP</code> version you are using! So, I'd also like to share a simple data entry into <code>MySQL</code> database using <code>PHP</code>! It may work with your system! :D<br />
+<br />
+<b>Note: </b>For Beginner!<br />
+<br />
+It'll be very short and simple, so that you can understand the whole code easily!<br />
+<br />
+For this I will be using <a href="https://www.apachefriends.org/" target="_blank"><b>XAMPP </b>(Apache)</a> as a server ,specifically, version <a href="https://www.apachefriends.org/xampp-files/5.5.37/xampp-linux-x64-5.5.37-0-installer.run">5.5.37</a>&nbsp;, you may want to download it if you are going to follow this tutorial!<br />
+<br />
+Depending on the <b>Operating System</b> you are using, you should download them!<br />
+<br />
+For Windows User:<br />
+<button class="btn btn-success" type="button"><a href="https://www.apachefriends.org/xampp-files/5.5.37/xampp-win32-5.5.37-0-VC11-installer.exe">Download Here</a></button>
+
+<br />
+Just Install It! Hope you know how to install!<br />
+<br />
+For Linux Users:<br />
+<br />
+<button class="btn btn-success" type="button"><a href="https://www.apachefriends.org/xampp-files/5.5.37/xampp-linux-x64-5.5.37-0-installer.run">Download Here</a></button><br />
+<br />
+Now, to install into your system,<br />
+Go to Terminal.<br />
+Give the following commands:<br />
+<div class="well">
+<code>cd /path-to-your-file<br />
+sudo chmod&nbsp;+x xampp-linux-x64-5.5.37-0-installer.run<br />
+sudo ./xampp-linux-x64-5.5.37-0-installer.run</code>
+</div>
+<br />
+I will not talk about Mac version as I haven't done on it!<br />
+<br />
+Now, we can begin the coding! All our code should be located inside the <code>htdocs</code> folder of your xampp/lampp installation directory i.e. our workspace will be <code>htdocs</code> folder!<br />
+<br />
+If you wonder where <code>htdocs</code> folder is;<br />
+<br />
+For Windows user, the <code>htdocs</code> folder is usually in<br />
+<code>C:/xampp/htdocs</code><br />
+<br />
+For Linux users, it is inside <code>/opt/lampp/htdocs</code>
+
+<br />
+For this data entry, we will create only one file! <br />
+But, before that we will first explain each part one by one!<br />
+To enter data into the database we need to connect to the database first! And to connect to a database, we must have a database! LOL!
+<br />
+So, Lets create one database by going to <code>http://127.0.0.1/phpmyadmin</code> or <code>http://localhost/phpmyadmin</code>. Lets create one new database called <code>directory</code>!
+<br />
+Let's go to the <code>SQL</code> tab and enter the following query!<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><span style="color: #66d9ef;">CREATE</span> <span style="color: #66d9ef;">TABLE</span> <span style="color: #e6db74;">`members`</span> <span style="color: #f8f8f2;">(</span>
+  <span style="color: #e6db74;">`id`</span> <span style="color: #66d9ef;">int</span><span style="color: #f8f8f2;">(</span><span style="color: #ae81ff;">11</span><span style="color: #f8f8f2;">)</span> <span style="color: #66d9ef;">NOT</span> <span style="color: #66d9ef;">NULL</span><span style="color: #f8f8f2;">,</span>
+  <span style="color: #e6db74;">`name`</span> <span style="color: #66d9ef;">varchar</span><span style="color: #f8f8f2;">(</span><span style="color: #ae81ff;">50</span><span style="color: #f8f8f2;">)</span> <span style="color: #66d9ef;">NOT</span> <span style="color: #66d9ef;">NULL</span><span style="color: #f8f8f2;">,</span>
+  <span style="color: #e6db74;">`phone`</span> <span style="color: #66d9ef;">varchar</span><span style="color: #f8f8f2;">(</span><span style="color: #ae81ff;">12</span><span style="color: #f8f8f2;">)</span> <span style="color: #66d9ef;">NOT</span> <span style="color: #66d9ef;">NULL</span>
+<span style="color: #f8f8f2;">)</span> <span style="color: #66d9ef;">ENGINE</span><span style="color: #f92672;">=</span><span style="color: #f8f8f2;">InnoDB</span> <span style="color: #66d9ef;">DEFAULT</span> <span style="color: #66d9ef;">CHARSET</span><span style="color: #f92672;">=</span><span style="color: #f8f8f2;">latin1;</span>
+</pre>
+</div>
+<br />
+Now, we have our database <code>directory</code> with a table <code>members</code> ! Lets start the connection!<br />
+Connection to the database can be created in a number of ways; <code>mysqli (procedural)</code>, <code>mysqli (object oriented)</code> and <code>pdo</code>! Now, we are going to use procedural mysqli! <br />
+The connection to database is created as below:<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><span style="color: #75715e;">&lt;?php</span>
+<span style="color: #f8f8f2;">$dbcon</span> <span style="color: #f92672;">=</span> <span style="color: #f92672;">@</span><span style="color: #f8f8f2;">mysqli_connect(</span><span style="color: #e6db74;">"localhost"</span><span style="color: #f8f8f2;">,</span><span style="color: #e6db74;">"root"</span><span style="color: #f8f8f2;">,</span><span style="color: #e6db74;">""</span><span style="color: #f8f8f2;">,</span><span style="color: #e6db74;">"directory"</span><span style="color: #f8f8f2;">);</span>
+<span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">($dbcon){</span>
+    <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">""</span><span style="color: #f8f8f2;">;</span>
+<span style="color: #f8f8f2;">}</span>
+<span style="color: #66d9ef;">else</span><span style="color: #f8f8f2;">{</span>
+    <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">"Error!"</span><span style="color: #f8f8f2;">;</span>
+<span style="color: #f8f8f2;">}</span>
+<span style="color: #75715e;">?&gt;</span>
+</pre>
+</div>
+<br />
+Before going further, lets create a simple html form!<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><span style="color: #75715e;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672;">&lt;html&gt;</span>
+<span style="color: #f92672;">&lt;head&gt;</span>
+    <span style="color: #f92672;">&lt;title&gt;</span>Simple Data Entry<span style="color: #f92672;">&lt;/title&gt;</span>
+<span style="color: #f92672;">&lt;/head&gt;</span>
+<span style="color: #f92672;">&lt;body</span> <span style="color: #a6e22e;">style=</span><span style="color: #e6db74;">"max-width:600px;margin:auto;align:justify;padding:8px;"</span><span style="color: #f92672;">&gt;</span>
+<span style="color: #f92672;">&lt;form</span> <span style="color: #a6e22e;">action=</span><span style="color: #e6db74;">"entry.php"</span> <span style="color: #a6e22e;">method=</span><span style="color: #e6db74;">"post"</span><span style="color: #f92672;">&gt;</span>
+<span style="color: #f92672;">&lt;legend&gt;</span>PLEASE FILL UP!<span style="color: #f92672;">&lt;/legend&gt;&lt;br/&gt;</span>
+<span style="color: #f92672;">&lt;label</span> <span style="color: #a6e22e;">for=</span><span style="color: #e6db74;">"name"</span><span style="color: #f92672;">&gt;</span>ENTER NAME:<span style="color: #f92672;">&lt;/label&gt;&lt;br/&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"text"</span> <span style="color: #a6e22e;">name=</span><span style="color: #e6db74;">"name"</span><span style="color: #f92672;">&gt;&lt;br/&gt;</span>
+<span style="color: #f92672;">&lt;label</span> <span style="color: #a6e22e;">for=</span><span style="color: #e6db74;">"phone"</span><span style="color: #f92672;">&gt;</span>ENTER PHONE NUMBER:<span style="color: #f92672;">&lt;/label&gt;&lt;br/&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"tel"</span> <span style="color: #a6e22e;">name=</span><span style="color: #e6db74;">"phone"</span><span style="color: #f92672;">&gt;&lt;br/&gt;</span>
+<span style="color: #f92672;">&lt;br/&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"hidden"</span> <span style="color: #a6e22e;">name=</span><span style="color: #e6db74;">"submitinfo"</span> <span style="color: #a6e22e;">value=</span><span style="color: #e6db74;">"TRUE"</span><span style="color: #f92672;">&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"submit"</span><span style="color: #f92672;">&gt;</span>
+<span style="color: #f92672;">&lt;/form&gt;</span>
+<span style="color: #f92672;">&lt;/body&gt;</span>
+<span style="color: #f92672;">&lt;/html&gt;</span>
+</pre>
+</div>
+<br />
+Now if any field is empty, we will notify that a field is empty! For that, we will require an array where we will store the error message!
+<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;">$error = array();
+</pre>
+</div>
+<br />
+To check whether a field is empty, we will use <code>empty()</code> library function as below:<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;">if(!empty($_POST['name']))
+        $name = $_POST['name'];
+    else
+        $error[] = "Please Enter Name!";
+</pre>
+</div>
+<br />
+Now, if the error[] array is empty, we will insert data from html form into the database as below: <br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;">$query = "INSERT INTO `members` (`name`,`phone`) VALUES('$name','$phone')";
+
+        $insert = mysqli_query($dbcon,$query);
+</pre>
+</div>
+<br />
+Now, we can say that we are done! <br />
+<br />
+<br />
+Lets take a look at the while code.<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><span style="color: #75715e;">&lt;?php</span>
+<span style="color: #75715e;">//Lets connect the database....</span>
+<span style="color: #f8f8f2;">$dbcon</span> <span style="color: #f92672;">=</span> <span style="color: #f92672;">@</span><span style="color: #f8f8f2;">mysqli_connect(</span><span style="color: #e6db74;">"localhost"</span><span style="color: #f8f8f2;">,</span><span style="color: #e6db74;">"root"</span><span style="color: #f8f8f2;">,</span><span style="color: #e6db74;">""</span><span style="color: #f8f8f2;">,</span><span style="color: #e6db74;">"directory"</span><span style="color: #f8f8f2;">);</span>
+<span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">($dbcon){</span>
+    <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">""</span><span style="color: #f8f8f2;">;</span>
+<span style="color: #f8f8f2;">}</span>
+<span style="color: #66d9ef;">else</span><span style="color: #f8f8f2;">{</span>
+    <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">"Error!"</span><span style="color: #f8f8f2;">;</span>
+<span style="color: #f8f8f2;">}</span>
+
+<span style="color: #75715e;">//create one array to store error message....</span>
+
+<span style="color: #f8f8f2;">$error</span> <span style="color: #f92672;">=</span> <span style="color: #66d9ef;">array</span><span style="color: #f8f8f2;">();</span>
+
+<span style="color: #75715e;">//Let assign our html form data to our variables...</span>
+
+<span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">(isset($_POST[</span><span style="color: #e6db74;">'submitinfo'</span><span style="color: #f8f8f2;">])){</span> <span style="color: #75715e;">//if submit button is clicked!</span>
+
+    <span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">(</span><span style="color: #f92672;">!</span><span style="color: #66d9ef;">empty</span><span style="color: #f8f8f2;">($_POST[</span><span style="color: #e6db74;">'name'</span><span style="color: #f8f8f2;">]))</span>
+        <span style="color: #f8f8f2;">$name</span> <span style="color: #f92672;">=</span> <span style="color: #f8f8f2;">$_POST[</span><span style="color: #e6db74;">'name'</span><span style="color: #f8f8f2;">];</span>
+    <span style="color: #66d9ef;">else</span>
+        <span style="color: #f8f8f2;">$error[]</span> <span style="color: #f92672;">=</span> <span style="color: #e6db74;">"Please Enter Name!"</span><span style="color: #f8f8f2;">;</span>
+
+    <span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">(</span><span style="color: #f92672;">!</span><span style="color: #66d9ef;">empty</span><span style="color: #f8f8f2;">($_POST[</span><span style="color: #e6db74;">'phone'</span><span style="color: #f8f8f2;">]))</span>
+        <span style="color: #f8f8f2;">$phone</span> <span style="color: #f92672;">=</span> <span style="color: #f8f8f2;">$_POST[</span><span style="color: #e6db74;">'phone'</span><span style="color: #f8f8f2;">];</span>
+    <span style="color: #66d9ef;">else</span>
+        <span style="color: #f8f8f2;">$error[]</span> <span style="color: #f92672;">=</span> <span style="color: #e6db74;">"Please Enter Phone Number!"</span><span style="color: #f8f8f2;">;</span>
+
+    <span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">(</span><span style="color: #66d9ef;">empty</span><span style="color: #f8f8f2;">($error)){</span>
+
+        <span style="color: #f8f8f2;">$query</span> <span style="color: #f92672;">=</span> <span style="color: #e6db74;">"INSERT INTO `members` (`name`,`phone`) VALUES('$name','$phone')"</span><span style="color: #f8f8f2;">;</span>
+
+        <span style="color: #f8f8f2;">$insert</span> <span style="color: #f92672;">=</span> <span style="color: #a6e22e;">mysqli_query</span><span style="color: #f8f8f2;">($dbcon,$query);</span>
+        <span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">(</span><span style="color: #f92672;">!</span><span style="color: #f8f8f2;">$insert){</span>
+            <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">"Query Failed!"</span><span style="color: #f8f8f2;">;</span>
+        <span style="color: #f8f8f2;">}</span>
+        <span style="color: #66d9ef;">if</span><span style="color: #f8f8f2;">(</span><span style="color: #a6e22e;">mysqli_affected_rows</span><span style="color: #f8f8f2;">($dbcon)</span><span style="color: #f92672;">==</span><span style="color: #ae81ff;">1</span><span style="color: #f8f8f2;">){</span>
+            <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">"New Data Inserted!"</span><span style="color: #f8f8f2;">;</span>
+        <span style="color: #f8f8f2;">}</span><span style="color: #66d9ef;">else</span><span style="color: #f8f8f2;">{</span>
+            <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">"Error!"</span><span style="color: #f8f8f2;">;</span>
+
+         <span style="color: #f8f8f2;">}</span>
+
+    <span style="color: #f8f8f2;">}</span><span style="color: #66d9ef;">else</span><span style="color: #f8f8f2;">{</span>
+        <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">'&lt;ol&gt;'</span><span style="color: #f8f8f2;">;</span>
+
+        <span style="color: #66d9ef;">foreach</span> <span style="color: #f8f8f2;">($error</span> <span style="color: #66d9ef;">as</span> <span style="color: #f8f8f2;">$key</span> <span style="color: #f92672;">=&gt;</span> <span style="color: #f8f8f2;">$values)</span> <span style="color: #f8f8f2;">{</span>
+
+            <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">'  &lt;li&gt;'</span><span style="color: #f92672;">.</span><span style="color: #f8f8f2;">$values</span><span style="color: #f92672;">.</span><span style="color: #e6db74;">'&lt;/li&gt;'</span><span style="color: #f8f8f2;">;</span>
+
+        <span style="color: #f8f8f2;">}</span>
+        <span style="color: #66d9ef;">echo</span> <span style="color: #e6db74;">'&lt;/ol&gt;'</span><span style="color: #f8f8f2;">;</span>
+    <span style="color: #f8f8f2;">}</span>
+    <span style="color: #a6e22e;">mysqli_close</span><span style="color: #f8f8f2;">($dbcon);</span>
+<span style="color: #f8f8f2;">}</span>
+
+
+<span style="color: #75715e;">?&gt;</span>
+
+<span style="color: #75715e;">&lt;!-- html form --&gt;</span>
+<span style="color: #75715e;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672;">&lt;html&gt;</span>
+<span style="color: #f92672;">&lt;head&gt;</span>
+    <span style="color: #f92672;">&lt;title&gt;</span>Simple Data Entry<span style="color: #f92672;">&lt;/title&gt;</span>
+<span style="color: #f92672;">&lt;/head&gt;</span>
+<span style="color: #f92672;">&lt;body</span> <span style="color: #a6e22e;">style=</span><span style="color: #e6db74;">"max-width:600px;margin:auto;align:justify;padding:8px;"</span><span style="color: #f92672;">&gt;</span>
+<span style="color: #f92672;">&lt;form</span> <span style="color: #a6e22e;">action=</span><span style="color: #e6db74;">"</span><span style="color: #75715e;">&lt;?php</span> <span style="color: #f8f8f2;">$_PHP_SELF;</span> <span style="color: #75715e;">?&gt;</span><span style="color: #e6db74;">"</span> <span style="color: #a6e22e;">method=</span><span style="color: #e6db74;">"post"</span><span style="color: #f92672;">&gt;</span>
+<span style="color: #f92672;">&lt;legend&gt;</span>PLEASE FILL UP!<span style="color: #f92672;">&lt;/legend&gt;&lt;br/&gt;</span>
+<span style="color: #f92672;">&lt;label</span> <span style="color: #a6e22e;">for=</span><span style="color: #e6db74;">"name"</span><span style="color: #f92672;">&gt;</span>ENTER NAME:<span style="color: #f92672;">&lt;/label&gt;&lt;br/&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"text"</span> <span style="color: #a6e22e;">name=</span><span style="color: #e6db74;">"name"</span><span style="color: #f92672;">&gt;&lt;br/&gt;</span>
+<span style="color: #f92672;">&lt;label</span> <span style="color: #a6e22e;">for=</span><span style="color: #e6db74;">"phone"</span><span style="color: #f92672;">&gt;</span>ENTER PHONE NUMBER:<span style="color: #f92672;">&lt;/label&gt;&lt;br/&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"tel"</span> <span style="color: #a6e22e;">name=</span><span style="color: #e6db74;">"phone"</span><span style="color: #f92672;">&gt;&lt;br/&gt;</span>
+<span style="color: #f92672;">&lt;br/&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"hidden"</span> <span style="color: #a6e22e;">name=</span><span style="color: #e6db74;">"submitinfo"</span> <span style="color: #a6e22e;">value=</span><span style="color: #e6db74;">"TRUE"</span><span style="color: #f92672;">&gt;</span>
+    <span style="color: #f92672;">&lt;input</span> <span style="color: #a6e22e;">type=</span><span style="color: #e6db74;">"submit"</span><span style="color: #f92672;">&gt;</span>
+<span style="color: #f92672;">&lt;/form&gt;</span>
+<span style="color: #f92672;">&lt;/body&gt;</span>
+<span style="color: #f92672;">&lt;/html&gt;</span>
+</pre>
+</div>
+<br />
+Name this file anything as you wanted (<b>should be .php extension</b>) and open your browser and go to <code>http://localhost/your_file_name.php</code>!
+<br />
+<br />
+Enter any data, if there is anything wrong, please say it in the comment section!
+</div>
+
+
+    </p>
+  </div>
+<hr>
+  <div class="footer">
+    <p> &copy; Sunday Lalbiaknia</p>

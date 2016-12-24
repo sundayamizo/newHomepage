@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<head>
+  <title>XAMPP CONFIGURATION FOR (ONLINE) WEBSITE - Sunday Lalbiaknia : Blog</title>
+  <meta name="keywords" content="sunday lalbiaknia,sundayakent,sundayamizo,nit mizoram,bilkhawthlir,php developer,web security researcher" />
+  <meta name="description" content="Sunday Lalbiaknia, Web Developer &amp; Security Researcher" />
+  <link type="text/css" rel="stylesheet" href="../style.css"/>
+  <meta name="author" content="Sunday Lalbiaknia" />
+  <meta name="robots" content="All" />
+</head>
+<body>
+  <div class="header">
+    <h><b>Sunday Lalbiaknia</b></h>
+    <p>web developer | pentester | researcher</p>
+  </div>
+  <hr>
+  <p align="center"><a href="..">home</a> | <a href="../resume.html">resume</a> | <a href="index.html">blog</a> | <a href="../photos.html">photos</a> | <a href="../interests.html">interests</a> | <a href="../contact.php">contact</a></p>
+  <hr>
+  <div align="center">
+  <h>XAMPP CONFIGURATION FOR (ONLINE) WEBSITE</h><br/>
+  <small>19/08/2016 05:36 PM, Ramhlun South, Aizawl</small>
+</div>
+  <div class="maintext">
+
+    <p style="align:justify">
+      <div dir="ltr" style="text-align: left;" trbidi="on">
+I don't think this is a new thing for most of you! But, &nbsp;I'd still like to share this things that I found out!<br />
+<br />
+During this vacation ( Summer 2016 ), I continue my internship at my very own college <a href="http://nitmz.ac.in/" target="_blank">NIT Mizoram</a>, with my colleague Jereemi Bentham (Genius) ! We are building a Mizo Search Engine based on <a href="http://nutch.apache.org/" target="_blank">Apache Nutch</a>. So many works to do as we are the first one on this topic! After the publication of our Research Paper, I'd share the procedure of the task!<br />
+<br />
+But for now, as mentioned in the title, I will share one thing I found out about <a href="https://www.apachefriends.org/index.html" target="_blank">XAMPP</a> configuration!<br />
+<br />
+During this internship period, I was given extra work to create an Internet User Management System (Web based)! Our college server (IIS) have some problem with PHP and other web language except ASP! As a PHP Developer, I don't know much about ASP!<br />
+<br />
+So, I thought of using XAMPP and make some modification in the configuration! So, I install XAMPP Server and make the configuration as below!<br />
+<br />
+First the <code>httpd.conf</code> file:<br />
+<br />
+Path :&nbsp;<code>C:\xampp\apache\conf\httpd.conf</code><br />
+<br />
+<br />
+Changes:<br />
+<br />
+Now, make some changes in your <code>httpd.conf</code> . First, search for the following line of configuration!<br />
+<div class="well">
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;">ServerAdmin postmaster<span style="color: darkgoldenrod;">@localhost</span>
+</pre>
+</div>
+<br />
+This isn't necessary if you are not going to use email service! But if you want to use, change it as below!<br />
+<br />
+<code>
+<!-- HTML generated using hilite.me --></code>
+<br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><code>ServerAdmin email<span style="color: darkgoldenrod;">@your_website.com</span>
+</code></pre>
+</div>
+<code>
+
+</code></div>
+<br />
+<div class="well">
+<!-- HTML generated using hilite.me -->Second, find the following lines again.<br />
+<!-- HTML generated using hilite.me --><br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;">DocumentRoot <span style="color: #bb4444;">"C:/xampp/htdocs"</span>
+&lt;Directory <span style="color: #bb4444;">"C:/xampp/htdocs"</span>&gt;
+</pre>
+</div>
+<br />
+<br />
+&nbsp;This is important! By default, when you start a XAMPP server and go to <code>http://localhost</code> or <code>http://127.0.0.1</code>, you will be redirected to <code>http://localhost/dashboard</code> or <code>http://127.0.0.1/dashboard</code>. If you want to make your own website as the default home page of localhost, you have to change the above lines as: <br />
+<br />
+<div style="background: #f8f8f8; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"> DocumentRoot <span style="color: #bb4444;">"C:/xampp/htdocs/YourWebsiteRootFolder"</span>
+&lt;Directory <span style="color: #bb4444;">"C:/xampp/htdocs/YourWebsiteRootFolder"</span>&gt;
+</pre>
+</div>
+</div>
+<br />
+Also know that your website folder must be placed inside <code>htdocs</code> folder!<br />
+<div>
+<code><br /></code></div>
+<br />
+Now, we are all good with the <code>httpd.conf</code> file. But, in case we want to use email service, XAMPP, by default will not allow <code>sendmail()</code> function of your PHP! You will have to hack the configuration file again!<br />
+<br />
+But for now, I will not talk about it! I'll soon get back! I do not like a long post at a time! </div>
+
+
+    </p>
+  </div>
+<hr>
+  <div class="footer">
+    <p> &copy; Sunday Lalbiaknia</p>

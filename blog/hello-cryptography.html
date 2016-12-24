@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<head>
+  <title>HELLO CRYPTOGRAPHY! - Sunday Lalbiaknia : Blog</title>
+  <meta name="keywords" content="sunday lalbiaknia,sundayakent,sundayamizo,nit mizoram,bilkhawthlir,php developer,web security researcher" />
+  <meta name="description" content="Sunday Lalbiaknia, Web Developer &amp; Security Researcher" />
+  <link type="text/css" rel="stylesheet" href="../style.css"/>
+  <meta name="author" content="Sunday Lalbiaknia" />
+  <meta name="robots" content="All" />
+</head>
+<body>
+  <div class="header">
+    <h><b>Sunday Lalbiaknia</b></h>
+    <p>web developer | pentester | researcher</p>
+  </div>
+  <hr>
+  <p align="center"><a href="..">home</a> | <a href="../resume.html">resume</a> | <a href="index.html">blog</a> | <a href="../photos.html">photos</a> | <a href="../interests.html">interests</a> | <a href="../contact.php">contact</a></p>
+  <hr>
+  <div align="center">
+  <h>HELLO CRYPTOGRAPHY!</h><br/>
+  <small>07/12/2016 04:39 PM, ISI Kolkata, West Bengal</small>
+</div>
+  <div class="maintext">
+
+    <p style="align:justify">
+      <div dir="ltr" style="text-align: left;" trbidi="on">
+  I should say this is not my first time in Kolkata because I've been inside the Netaji Shubash&nbsp;Chandra Bose International Airport for like five hours waiting for a delayed flight to New Delhi! 😁 !<br />
+  <div>
+  <br /></div>
+  <div>
+  But, formally, this is my first time in Kolkata.</div>
+  <div>
+  <br /></div>
+  <div>
+  I got this precious opportunity to do a research internship under D<a href="http://goutampaul.com/">r. Goutam Paul </a>at <a href="http://www.isical.ac.in/~rcbose/">RC Bose Center for Cryptography and Security, ISI Kolkata.</a></div>
+  <div>
+  <br /></div>
+  <div>
+  I love the hospitality they give here except the Internet connection! It is f**ckin' slow!</div>
+  <div>
+  <br /></div>
+  <div>
+  At first, I thought I'm going to write about my life here, but as I have no camera to take the photos of me and the surroundings, I think I should wait until I can get a new phone (camera).</div>
+  <div>
+  <br /></div>
+  <div>
+  So, I will write a short post about my first task here.</div>
+  <div>
+  <br /></div>
+  <div>
+  I should say I am completely new to Cryptography. But I am having some basic knowledge of graph in Mathematics. Hope I can get through&nbsp;this! &nbsp;💪 !</div>
+  <div>
+  <br /></div>
+  <div>
+  Actually, my first task that my guide gave me was a very very simple thing.</div>
+  <div>
+  <br /></div>
+  <div>
+  He has a GPU machine in his office&nbsp;<span style="background-color: white; color: #222222; font-family: &quot;arial&quot; , sans-serif; font-size: 12.8px;">NVIDIA Quadro K4000 3GB.&nbsp;</span>He wants some of his colleagues to be able to access this machine from their own computer.</div>
+  <div>
+  <br /></div>
+  <div>
+  So, basically, my task was that I have to set up a centralized GPU server.</div>
+  <div>
+  More technically, I have to set up a simple SSH server in the machine (which runs on Ubuntu 16.04 Xenial Xerrus).</div>
+  <div>
+  <br /></div>
+  <div>
+  So, all I have to do is to just install <code>openssh-server</code>&nbsp;on the system as;</div>
+  <div>
+  <code>
+  sudo apt-get install openssh-server
+  </code></div>
+  <div>
+  <br /></div>
+  <div>
+  I don't know why he let me do this! But, everything is fine.</div>
+  <div>
+  <br />
+  The second task is to study CUDA programming for GPU.<br />
+  Honestly, this is the first time I heard the word CUDA! WOW! It's going to be a long winter!<br />
+  He gave me one PDF tutorial on CUDA and I have to do everything else.<br />
+  Till now, nothing is related much to cryptography.</div>
+  <div>
+  <br />
+  Last night i.e. 6th Dec 2016, I got an email from him about a new task/assignment. He attached a paper &nbsp;"<b><a href="http://epubs.siam.org/doi/abs/10.1137/1.9781611973105.134">Optimal Listing of Cycles and st-Paths in Undirected Graphs</a></b>"! My new task was to implement the algorithm they mentioned in the paper. Now this is related to Cryptography in some way. I spend the whole night studying the paper, which, until now, brought me nothing! This is surely going to be a long winter. A long one.<br />
+  <br />
+  I should say I hate Algorithm (Mathematics), but I want to pursue a career on it.<br />
+  <br />
+  Honestly, I wish I could turn back time and give more attention to Sir Gautam Majumder's Algorithm class! 😓!<br />
+  <br />
+  Oh Graph , I hate you!<br />
+  <br />
+  But, let's see! I hope that I could solve the thing.<br />
+  <br />
+  Talking about cryptography, I never knew that graph and this encryption thing will co-relate. I have heard of classical encryption like a monoalphabetic encryption. But honestly, I &nbsp;never thought that Cryptography will be so complex like this.<br />
+  <br />
+  A very common classical encryption technique was this monoalphabetic transpositional encryption.<br />
+  The below C program shown is the application of this technique.<br />
+  <br />
+  encrypt.c<br />
+  <br />
+  <!-- HTML generated using hilite.me --><br />
+  <div style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+  <table><tbody>
+  <tr><td><pre style="line-height: 125%; margin: 0;"> 1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+  10
+  11
+  12
+  13
+  14
+  15
+  16
+  17
+  18
+  19
+  20
+  21
+  22
+  23
+  24
+  25
+  26
+  27
+  28
+  29
+  30</pre>
+  </td><td><pre style="line-height: 125%; margin: 0;"><span style="color: #75715e;">#include &lt;stdio.h&gt;</span>
+  <span style="color: #75715e;">#include &lt;string.h&gt;</span>
+
+  <span style="color: #66d9ef;">void</span> <span style="color: #a6e22e;">encrypt</span><span style="color: #f8f8f2;">(</span><span style="color: #66d9ef;">char</span> <span style="color: #f8f8f2;">password[],</span><span style="color: #66d9ef;">int</span> <span style="color: #f8f8f2;">key)</span>
+  <span style="color: #f8f8f2;">{</span>
+      <span style="color: #66d9ef;">unsigned</span> <span style="color: #66d9ef;">int</span> <span style="color: #f8f8f2;">i;</span>
+      <span style="color: #66d9ef;">FILE</span> <span style="color: #f92672;">*</span><span style="color: #f8f8f2;">fptr;</span>
+
+      <span style="color: #66d9ef;">for</span><span style="color: #f8f8f2;">(i</span><span style="color: #f92672;">=</span><span style="color: #ae81ff;">0</span><span style="color: #f8f8f2;">;i</span><span style="color: #f92672;">&lt;</span><span style="color: #f8f8f2;">strlen(password);</span><span style="color: #f92672;">++</span><span style="color: #f8f8f2;">i)</span>
+      <span style="color: #f8f8f2;">{</span>
+          <span style="color: #f8f8f2;">password[i]</span> <span style="color: #f92672;">=</span> <span style="color: #f8f8f2;">password[i]</span> <span style="color: #f92672;">-</span> <span style="color: #f8f8f2;">key;</span>
+      <span style="color: #f8f8f2;">}</span>
+
+      <span style="color: #f8f8f2;">fptr</span> <span style="color: #f92672;">=</span> <span style="color: #f8f8f2;">fopen(</span><span style="color: #e6db74;">"code"</span><span style="color: #f8f8f2;">,</span> <span style="color: #e6db74;">"w"</span><span style="color: #f8f8f2;">);</span>
+
+
+      <span style="color: #f8f8f2;">fprintf(fptr,</span> <span style="color: #e6db74;">"%s"</span><span style="color: #f8f8f2;">,</span> <span style="color: #f8f8f2;">password);</span>
+
+  <span style="color: #f8f8f2;">}</span>
+
+  <span style="color: #66d9ef;">int</span> <span style="color: #a6e22e;">main</span><span style="color: #f8f8f2;">()</span>
+  <span style="color: #f8f8f2;">{</span>
+      <span style="color: #66d9ef;">char</span> <span style="color: #f8f8f2;">password[</span><span style="color: #ae81ff;">20</span><span style="color: #f8f8f2;">];</span>
+      <span style="color: #f8f8f2;">printf(</span><span style="color: #e6db74;">"Enter password</span><span style="color: #ae81ff;">\n</span><span style="color: #e6db74;">"</span><span style="color: #f8f8f2;">);</span>
+      <span style="color: #f8f8f2;">scanf(</span><span style="color: #e6db74;">"%s"</span><span style="color: #f8f8f2;">,</span> <span style="color: #f8f8f2;">password);</span>
+      <span style="color: #f8f8f2;">encrypt(password,</span><span style="color: #ae81ff;">1</span><span style="color: #f8f8f2;">);</span>
+      <span style="color: #f8f8f2;">printf(</span><span style="color: #e6db74;">"Encrypted value = %s</span><span style="color: #ae81ff;">\n</span><span style="color: #e6db74;">"</span><span style="color: #f8f8f2;">,password);</span>
+
+      <span style="color: #66d9ef;">return</span> <span style="color: #ae81ff;">0</span><span style="color: #f8f8f2;">;</span>
+  <span style="color: #f8f8f2;">}</span>
+  </pre>
+  </td></tr>
+  </tbody></table>
+  </div>
+  <br />
+  <br />
+  The encrypt.c will take a plaintext input and will encrypt it by changing its character with its predecessor i.e. s will be replaced by r, T will be replaced by S, and so on. This is because I choose the key as "1". You can change the key as you like it, but the key should be remembered as it is also going to be used for decryption The code will write the encrypted text i.e. the cyphertext to a file "code ", which will be passed as a message to another person.<br />
+  <br />
+  The person who received the ciphertext can decrypt the code by the below C program.<br />
+  <br />
+  decrypt.c<br />
+  <br />
+  <!-- HTML generated using hilite.me --><br />
+  <div style="background: #272822; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+  <table><tbody>
+  <tr><td><pre style="line-height: 125%; margin: 0;"> 1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+  10
+  11
+  12
+  13
+  14
+  15
+  16
+  17
+  18
+  19
+  20
+  21
+  22
+  23
+  24
+  25
+  26</pre>
+  </td><td><pre style="line-height: 125%; margin: 0;"><span style="color: #75715e;">#include &lt;stdio.h&gt;</span>
+  <span style="color: #75715e;">#include &lt;string.h&gt;</span>
+
+
+  <span style="color: #66d9ef;">void</span> <span style="color: #a6e22e;">decrypt</span><span style="color: #f8f8f2;">(</span><span style="color: #66d9ef;">char</span> <span style="color: #f8f8f2;">password[],</span><span style="color: #66d9ef;">int</span> <span style="color: #f8f8f2;">key)</span>
+  <span style="color: #f8f8f2;">{</span>
+
+
+      <span style="color: #66d9ef;">unsigned</span> <span style="color: #66d9ef;">int</span> <span style="color: #f8f8f2;">i;</span>
+      <span style="color: #66d9ef;">for</span><span style="color: #f8f8f2;">(i</span><span style="color: #f92672;">=</span><span style="color: #ae81ff;">0</span><span style="color: #f8f8f2;">;i</span><span style="color: #f92672;">&lt;</span><span style="color: #f8f8f2;">strlen(password);</span><span style="color: #f92672;">++</span><span style="color: #f8f8f2;">i)</span>
+      <span style="color: #f8f8f2;">{</span>
+          <span style="color: #f8f8f2;">password[i]</span> <span style="color: #f92672;">=</span> <span style="color: #f8f8f2;">password[i]</span> <span style="color: #f92672;">+</span> <span style="color: #f8f8f2;">key;</span>
+      <span style="color: #f8f8f2;">}</span>
+
+
+  <span style="color: #f8f8f2;">}</span>
+  <span style="color: #66d9ef;">int</span> <span style="color: #a6e22e;">main</span><span style="color: #f8f8f2;">()</span>
+  <span style="color: #f8f8f2;">{</span>
+      <span style="color: #66d9ef;">char</span> <span style="color: #f8f8f2;">password[</span><span style="color: #ae81ff;">20</span><span style="color: #f8f8f2;">];</span>
+      <span style="color: #f8f8f2;">printf(</span><span style="color: #e6db74;">"Enter the encrypted code!</span><span style="color: #ae81ff;">\n</span><span style="color: #e6db74;">"</span><span style="color: #f8f8f2;">);</span>
+      <span style="color: #f8f8f2;">scanf(</span><span style="color: #e6db74;">"%s"</span><span style="color: #f8f8f2;">,</span> <span style="color: #f8f8f2;">password);</span>
+
+      <span style="color: #f8f8f2;">decrypt(password,</span><span style="color: #ae81ff;">1</span><span style="color: #f8f8f2;">);</span>
+      <span style="color: #f8f8f2;">printf(</span><span style="color: #e6db74;">"Decrypted value = %s</span><span style="color: #ae81ff;">\n</span><span style="color: #e6db74;">"</span><span style="color: #f8f8f2;">,password);</span>
+      <span style="color: #66d9ef;">return</span> <span style="color: #ae81ff;">0</span><span style="color: #f8f8f2;">;</span>
+  <span style="color: #f8f8f2;">}</span>
+  </pre>
+  </td></tr>
+  </tbody></table>
+  </div>
+  <br />
+  <br />
+  The second person will enter the ciphertext and using the key "1", he will be able to decrypt it easily and it will show the exact plaintext that the sender encrypted.<br />
+  <br />
+  This is one of the oldest and simplest encryption technique. If the key is found out by "a man in the middle", it can be easily cracked. Because of this, this encryption technique is not used nowadays. But still, &nbsp;it was a fun thing to do and looks cool sharing with friends<br />
+  <br />
+  Try the above simple code. If there is anythig wrong, please comment.<br />
+  <br /></div>
+  </div>
+
+
+
+    </p>
+  </div>
+<hr>
+  <div class="footer">
+    <p> &copy; Sunday Lalbiaknia</p>
